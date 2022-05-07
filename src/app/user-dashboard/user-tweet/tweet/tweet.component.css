@@ -1,0 +1,15 @@
+.messageComment
+{
+    width:88%;
+}
+
+.no-bg
+{
+    background-color: none !important;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff !important;
+  }

@@ -1,0 +1,132 @@
+<!-- Include the above in your HEAD tag -->
+
+<div class="main">
+
+
+    <div class="container">
+
+        <div class="middle text-center">
+            <div id="login" class="my-2">
+                <form class="form-signin" [formGroup]="UserRegister" autocomplete="off" (submit)="onSubmit()">
+                    <fieldset class="clearfix">
+                        <div class="row">
+                            <div class="col-md-2"><i class="fa fa-user fa-2x"></i> </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" formControlName="firstName"
+                                    Placeholder="First Name">
+                                <div class="validationMsg">
+                                    <small class="text-danger"
+                                        *ngIf="(UserRegister.get('firstName')?.touched &&  UserRegister.get('firstName')?.errors?.required)">
+                                        First Name is mandatory</small>
+                                    <small class="text-danger"
+                                        *ngIf="UserRegister.get('firstName')?.touched && UserRegister.get('firstName')?.errors?.pattern">First
+                                        Name
+                                        cannot have special characters or digits</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"><i class="fa fa-user fa-2x"></i> </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" formControlName="lastName"
+                                    Placeholder="Last Name">
+                                <div class="validationMsg">
+                                    <small class="text-danger"
+                                        *ngIf="UserRegister.get('lastName')?.touched && UserRegister.get('lastName')?.errors?.required">
+                                        Last Name is mandatory</small>
+                                    <small class="text-danger"
+                                        *ngIf="UserRegister.get('lastName')?.touched && UserRegister.get('lastName')?.errors?.pattern">Last
+                                        Name cannot have special characters or digits</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"><i class="fa fa-at fa-2x"></i> </div>
+                            <div class="col-md-10">
+
+                                <input type="text" class="form-control" formControlName="email"
+                                    Placeholder="Email Address">
+                                <div class="validationMsg">
+                                    <small class="text-danger"
+                                        *ngIf="UserRegister.get('email')?.touched && UserRegister.get('email')?.errors?.required">
+                                        Email is mandatory</small>
+                                    <small class="text-danger"
+                                        *ngIf="UserRegister.get('email')?.touched && UserRegister.get('email')?.errors?.pattern">Invalid
+                                        Email Address</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"><i class="fa fa-id-badge fa-2x"></i> </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" formControlName="username"
+                                        Placeholder="username">
+                                <div class="validationMsg">
+                                    
+                                    <small class="text-danger"
+                                        *ngIf="UserRegister.get('username')?.touched && UserRegister.get('username')?.errors?.required">
+                                        username is mandatory</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"><i class="fa fa-lock fa-2x"></i> </div>
+                            <div class="col-md-10">
+                                <input type="password" class="form-control" formControlName="password"
+                                    Placeholder="Password">
+                                <div class="validationMsg">
+                                    <small class="text-danger"
+                                        *ngIf="UserRegister.get('password')?.touched && UserRegister.get('password')?.errors?.required">
+                                        Password is mandatory</small>
+                                    <small class="text-danger"
+                                        *ngIf="UserRegister.get('password')?.touched && UserRegister.get('password')?.errors?.minlength">Minimun
+                                        6 characters required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"><i class="fa fa-lock fa-2x"></i> </div>
+                            <div class="col-md-10">
+                                <input type="password" class="form-control" formControlName="confirmPassword"
+                                    Placeholder="Confirm Password">
+                                <div class="validationMsg">
+                                    <small class="text-danger"
+                                        *ngIf="UserRegister.get('confirmPassword')?.touched && UserRegister.get('confirmPassword')?.errors?.required">
+                                        Confirm Password is mandatory
+                                    </small>
+                                    <small class="text-danger"
+                                    *ngIf="UserRegister.get('confirmPassword')?.touched && UserRegister.get('confirmPassword')?.errors?.minlength">Minimun
+                                    6 characters required</small>
+                                    <small class="text-danger"
+                                        *ngIf="UserRegister.get('confirmPassword')?.errors?.confirmedValidator">
+                                        Confirm Password does not match
+                                    </small>
+      
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7 my-2"><a routerLink="/login">Exisitng user ?</a></div>
+                            <div class="col-md-5">
+                                <button class="btn btn-md my-2" [disabled]="!UserRegister.valid">Register</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                    <div class="clearfix"></div>
+                </form>
+
+                <div class="clearfix"></div>
+
+            </div> <!-- end login -->
+            <div class="logo">
+                Tweet App Register
+
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

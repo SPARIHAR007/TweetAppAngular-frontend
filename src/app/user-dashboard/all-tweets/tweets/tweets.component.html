@@ -1,0 +1,58 @@
+<div class="data" *ngIf="displayNoData == 'true'">
+
+    <div class="card" *ngFor="let i of allTweets;let j =index" style="margin: 20px;">
+        <div class="card-header">
+            <div class="d-flex">
+                <h5>{{i.first_name |titlecase}} {{i.last_name | titlecase}}</h5>
+                <div class="ml-auto">
+                    {{i.createdAt | date:'medium'}}
+                </div>
+            </div>
+        </div>
+       
+        <div class="card-body">
+            <h5 class="card-title">{{i.tweetTag}}</h5>
+            <p class="card-text"> <i class="fas fa-quote-left"></i> &nbsp;{{i.tweetDescription}}</p>
+         
+            <div class="d-flex">
+                        
+                <a class="viewcomments" [routerLink]="['/user-dashboard/tweet', i.tweetId]"> <i class="far fa-thumbs-up"></i> </a> {{i.likesCount}}
+    
+                            
+                <div class="ml-auto">
+                     <a class="viewcomments" [routerLink]="['/user-dashboard/tweet', i.tweetId]"><i class="far fa-comment"></i></a> {{i.commentsCount}}
+                </div>
+            </div>
+<!--           
+            <div class="form" id="{{i.tweetId}}">
+    
+                <form class="post-form" [formGroup]="addForm" (ngSubmit)="addComments(i.tweetId)">
+    
+                    <div class="d-flex">
+                        
+                        <button class="btn btn-md my-4"><i class="far fa-thumbs-up fa-2x"></i></button>
+                       
+                        <div class="messageComment"> 
+                            <label class="">Comments</label>  <textarea class="form-control task-textarea" rows="1" formControlName="comments" id="description-{{j}}" ></textarea>
+                        </div>
+                                    
+                        <div class="ml-auto">
+                            <button class="btn my-4" id="btn-{{j}}{{i.tweetId}}" [disabled]="!addForm.valid"><i class="far fa-comment fa-2x"></i></button>                  
+                        </div>
+                    </div>
+    
+                    <a class="viewcomments" [routerLink]="['/user-dashboard/tweet', i.tweetId]">View All Comments</a> 
+                   
+    
+                </form>
+             
+            </div> -->
+        </div>
+    </div>
+    
+</div>
+<div *ngIf="displayNoData == 'false'">
+    <h1> No Tweets Found</h1>
+</div>
+
+

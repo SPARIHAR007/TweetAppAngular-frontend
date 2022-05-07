@@ -1,0 +1,43 @@
+
+        <div class="middle text-center">
+       
+                <form [formGroup]="Tweet" autocomplete="off" (submit)="OnSubmit()">
+                
+                        <div class="row">
+                            <div class="col-md-2"><i class="fas fa-2x fa-hashtag"></i> </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" formControlName="tweetTag"
+                                    placeholder=" Tweet Tag">
+                                    <div class="validationMsg">
+                                        <small class="text-danger"
+                                        *ngIf="Tweet.get('tweetTag')?.touched && Tweet.get('tweetTag')?.errors?.maxlength">Maximum
+                                        50 characters required
+                                        </small>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">  <i class="fas fa-2x fa-edit"></i> </div>
+                            <div class="col-md-10">
+
+                                <textarea class="form-control" formControlName="tweetDescription" placeholder="Tweet Description" id="exampleFormControlTextarea1" rows="8"></textarea>
+                                <div class="validationMsg">
+                                    <small class="text-danger" *ngIf="Tweet.get('tweetDescription')?.touched
+                                        && Tweet.get('tweetDescription')?.errors?.required">
+                                            Tweet Description is mandatory
+                                    </small>
+                                    <small class="text-danger"
+                                        *ngIf="Tweet.get('tweetDescription')?.touched && Tweet.get('tweetDescription')?.errors?.maxlength">Maximum
+                                        144 characters required
+                                    </small>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-md my-2" [disabled]="!Tweet.valid">Add Tweet</button>
+                        </div>
+                </form>
+               
+         
+        </div>

@@ -1,0 +1,104 @@
+
+*{
+    background-color: white;
+}
+
+  .middle-content {
+    display: block;
+    border-left: 1px solid black !important;
+    border-right: 1px solid black !important;
+    overflow-y: scroll;
+    
+    overflow-x: hidden;
+    height: 100vh;
+    background-color: #5574ad !important;
+  }
+
+  input
+  {
+    border-radius: 10px;
+  }
+
+  input :hover
+  {
+    
+    border-radius: 10px;
+  }
+  
+  .left {
+    background-color: white;
+    width: 250px;
+    float: left;
+    border-right: 3px solid black;
+     
+    height: 100vh;
+  }
+  
+
+.left>{
+  margin-bottom: 52px;
+  border:0px;
+}
+
+
+  .right {
+    background-color: white;
+    width: 250px;
+    float: right;
+    height: 100vh;
+  }
+
+  .left>.container>ul{  
+    padding-top:40px;
+    padding-left:25px;
+  }
+
+  .left>.container>ul>li
+  {
+      border:0px;
+  }
+
+   .left>.container>ul>li>a{
+      
+      font-weight: 900;
+  } 
+  
+  a{
+    color:black !important;
+  }
+
+  .btn-primary {
+    color: #fff;
+    background-color: #007bff !important;
+    border-color: #007bff;
+    border-radius: 20px;
+    height: 38px;
+    width: 160px;
+  }
+
+  
+  .list-group-item
+  {
+    margin-bottom: 30px;
+  }
+
+
+  /* You can add global styles to this file, and also import other style files */
+.middle-content::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.middle-content::-webkit-scrollbar-track {
+  background: #343a40!important;        /* color of the tracking area */
+}
+
+.middle-content::-webkit-scrollbar-thumb {
+  background-color: white;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid black;  /* creates padding around scroll thumb */
+}
+
+.searchBox
+{
+  height: 62px; padding: 18px;
+}

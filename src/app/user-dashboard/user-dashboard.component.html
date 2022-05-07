@@ -1,0 +1,66 @@
+<section class="mysection">
+
+    <aside class="left">
+        <div class="container">
+            <ul class="list-group text-center">
+                <!-- <li class="list-group-item headerlist text-left">
+                    <i class="fas fa-2x fa-home"></i>
+                    <a class="mx-1" routerLink="">Home</a>
+                </li> -->
+                <li class="list-group-item headerlist text-left">
+                    <i class="fab fa-2x fa-twitter"></i>
+                    <a class="mx-1" class="my-tweets"  routerLink="/user-dashboard/my-tweets">My Tweets</a>
+                </li>
+                <li class="list-group-item headerlist text-left">
+                    <i class="fab fa-2x fa-twitter-square"></i>
+                    <a class="mx-1" routerLink="/user-dashboard/all-tweets">All Tweets</a>
+                </li>
+                <li class="list-group-item headerlist text-left">
+                    <i class="fas fa-2x fa-users"></i>
+                    <a class="mx-1" routerLink="/user-dashboard/all-users">All Users</a>
+                </li>
+                <li class="list-group-item headerlist text-left">
+                    <i class="fas fa-2x fa-user-alt"></i>
+                    <a class="mx-1" routerLink="/user-dashboard/my-profile">My Profile</a>
+                </li>
+                <li class="list-group-item headerlist text-left">
+                    <!-- <i class="fas fa-2x fa-edit"></i> -->
+                    <!-- <a class="mx-1" routerLink="/user-dashboard/add-tweet">Add Tweet</a> -->
+                    <button type="button" class="btn btn-primary" routerLink="/user-dashboard/add-tweet">Tweet</button>
+                </li>
+            </ul>
+        </div>
+
+
+    </aside>
+    <aside class="right">
+        <div classs="container">
+            <div class="text-center h6 my-2"> 
+               {{UserName}} 
+            </div>
+
+            <div class="searchBox">
+
+                <input type="text" [(ngModel)]="userName" name="userName" placeholder="Search By UserName.."> &nbsp;
+                <a [routerLink]="['/user-dashboard/search', userName]"><i class="fas fa-search"></i></a> 
+                
+            </div>
+            <div class="d-flex">
+                <p class="mx-2 h3">Latest Tweet </p>
+                <div class="ml-auto my-1">
+                    <a class="nav-link d-inline"  routerLink="/user-dashboard/my-tweets"><i class="fas fa-redo-alt"></i></a>
+                </div>
+            </div>
+         
+            
+          
+            
+
+        </div>
+    </aside>
+
+    <div class="middle-content custom-scrollbar">
+            <router-outlet ></router-outlet>
+    </div>
+
+</section>

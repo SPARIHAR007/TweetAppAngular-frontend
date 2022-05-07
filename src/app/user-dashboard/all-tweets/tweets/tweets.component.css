@@ -1,0 +1,78 @@
+
+input
+{
+  border-radius: 10px;
+}
+
+input :hover
+{
+  border-radius: 10px;
+}
+
+.left {
+  background-color: white;
+  width: 250px;
+  float: left;
+  border-right: 3px solid black;
+  
+  height: 100vh;
+}
+
+.viewcomments
+{
+  color:black;
+}
+
+.left>{
+margin-bottom: 52px;
+border:0px;
+}
+
+
+.right {
+  background-color: white;
+  width: 250px;
+  float: right;
+  border-left:3px solid black;
+  
+  height: 100vh;
+}
+
+.left>.container>ul{  
+  padding-top:40px;
+  padding-left:25px;
+}
+
+.left>.container>ul>li
+{
+    border:0px;
+}
+
+ .left>.container>ul>li>a{
+    
+    font-weight: 900;
+} 
+
+a{
+  color:black !important;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff !important;
+  border-color: #007bff;
+  border-radius: 20px;
+  height: 38px;
+  width: 160px;
+}
+
+.messageComment
+{
+    width:88%;
+}
+
+.list-group-item
+{
+  margin-bottom: 40px;
+}
+

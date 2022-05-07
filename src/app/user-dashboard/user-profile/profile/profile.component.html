@@ -1,0 +1,145 @@
+<div class="container my-3" *ngIf="user">
+  <div class=" container row" *ngFor="let i of user">
+    <div class="col-md-4 col-sm-4 col-md-12">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex" >
+            <div class="profile-img">
+              <img src="\assets\UserProfile.png" width="150" class="avatar img-circle" alt="avatar" />
+            </div>
+            <div class="ml-auto">
+              <h3 class="my-5">
+                {{ i.first_name | titlecase }} {{ i.last_name | titlecase }}
+              </h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <br />
+      <div class="row text-center">
+        <div class="col-12">
+          <!-- <input style="display: none" type="file" (change)="onFileSelected($event)" #fileInput />
+          <button class="btn btn-success" (click)="fileInput.click()">Select File</button> &nbsp;
+
+          <button class="btn btn-info" (click)="onUpload()">Upload!</button> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-md-12">
+      <div class="profile-head">
+
+        <div class="row">
+          <div class="col-md-6">
+            <label>Username</label>
+          </div>
+          <div class="col-md-6">
+            <p>{{ i.username }}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label>Email</label>
+          </div>
+          <div class="col-md-6">
+            <p>{{ i.email |lowercase }}</p>
+          </div>
+        </div> 
+        <form [formGroup]="ChangePassword" autocomplete="off" (submit)="changePassword()">
+          <div class="row">
+            <div class="col-md-6">
+              <label class="my-1">Old Password</label>
+            </div>
+            <div class="col-md-6 form-group">
+              <input type="password" class="form-control" formControlName="password" placeholder="Password">
+              <div class="validationMsg">
+                <small class="text-danger"
+                  *ngIf="ChangePassword.get('password')?.touched && ChangePassword.get('password')?.errors?.required">
+                  Password is mandatory
+                </small>
+                <small class="text-danger"
+                  *ngIf="ChangePassword.get('password')?.touched && ChangePassword.get('password')?.errors?.minlength">Minimun
+                  6 characters required
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="my-1">New Password</label>
+            </div>
+            <div class="col-md-6 form-group">
+              <input type="newPassword" class="form-control" formControlName="newPassword" placeholder="New Password">
+              <div class="validationMsg">
+                <small class="text-danger"
+                  *ngIf="ChangePassword.get('newPassword')?.touched && ChangePassword.get('newPassword')?.errors?.required">
+                  New Password is mandatory
+                </small>
+                <small class="text-danger"
+                  *ngIf="ChangePassword.get('newPassword')?.touched && ChangePassword.get('newPassword')?.errors?.minlength">Minimun
+                  6 characters required
+                </small>
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="my-1">Confirm Password</label>
+            </div>
+            <div class="col-md-6 form-group">
+              <input type="confirmPassword" class="form-control" formControlName="confirmPassword"
+                placeholder="Confirm Password">
+              <div class="validationMsg">
+                <small class="text-danger"
+                  *ngIf="ChangePassword.get('confirmPassword')?.touched && ChangePassword.get('confirmPassword')?.errors?.required">
+                  Confirm Password is mandatory
+                </small>
+                <small class="text-danger"
+                  *ngIf="ChangePassword.get('confirmPassword')?.touched && ChangePassword.get('confirmPassword')?.errors?.minlength">Minimun
+                  6 characters required
+                </small>
+                <small class="text-danger" *ngIf="ChangePassword.get('confirmPassword')?.errors?.confirmedValidator">
+                  Confirm Password does not match
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 col-md-4"></div>
+            <div class="col-6 col-md-4"><button class="btn btn-md my-2" [disabled]="!ChangePassword.valid">Change
+                Password</button>
+            </div>
+           
+            <div class="col-6 col-md-4"></div>
+
+          </div>
+
+        </form>
+        <div class="row"  *ngIf="passChangedPassed">
+          <div class="col-xs-12">
+            <p class="alert alert-success">
+                <strong>Password Changed!</strong>
+  
+            </p>
+          </div>
+        </div>
+        <div class="row"  *ngIf="passChangedFailed">
+          <div class="col-xs-12">
+            <p class="alert alert-danger">
+                <strong>Invalid User Password!</strong>
+  
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-6 col-md-12">
+    </div>
+  </div>
+</div>

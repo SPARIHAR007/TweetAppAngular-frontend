@@ -1,0 +1,12 @@
+
+<div class="row">
+    <div class="col-lg-4 col-sm-12" *ngFor="let i of allUsers">
+        <div class="card" style="width: rem;margin-left:6px; margin-top:10px;">
+            <div class="card-body">
+              <h5 class="card-title">{{ i.first_name }} {{ i.last_name }} </h5>
+              <p class="card-text"> User Name - {{i.username}}</p>
+              <a class="btn btn-sm btn-primary" routerLink="/user-dashboard/search/{{i.username}}">{{i.first_name | titlecase}}'s Tweets</a> 
+            </div>
+        </div>
+    </div>
+</div>

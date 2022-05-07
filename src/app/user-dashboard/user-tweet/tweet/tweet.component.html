@@ -1,0 +1,60 @@
+<div class="card" *ngIf="tweet" style="margin: 20px;">
+    <div class="card-header">
+        <div class="d-flex">
+            <h5>{{first_name |titlecase}} {{last_name | titlecase}}</h5>
+            <div class="ml-auto">
+                {{tweet.createdAt | date:'medium'}}
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{tweet.tweetTag}}</h5>
+        <p class="card-text"><i class="fas fa-2x fa-quote-left"></i> &nbsp; {{tweet.tweetDescription}}</p>
+       
+        <div class="form" id="{{tweet.tweetId}}">
+            <div class="d-flex">
+                <div *ngIf="liked">
+                    <button class="btn btn-primary" (click)="toggle('unlike', tweet.tweetId, tweet.likeId)"  id="liked"><i class="fas fa-heart"></i></button>   {{tweet.likesCount}}
+                </div>
+                <div *ngIf="!liked">
+                    <button class="btn  btn-primary" (click)="toggle('like',tweet.tweetId)" id="unlike"><i class="far fa-heart"></i></button> {{tweet.likesCount}}
+                </div>
+                <div class="ml-auto">
+                    <i class="far fa-comment"></i>{{tweet.commentsCount}}
+                </div>
+            </div>
+            <div class="my-4">
+                <form class="d-inline" [formGroup]="addCommentForm" (ngSubmit)="addComments(tweet.tweetId)">
+                    <div class="d-flex">
+                        <div class="messageComment"> 
+                              <textarea class="form-control task-textarea" rows="1" formControlName="comments"></textarea>
+                        </div>
+                        <div class="ml-auto">
+                            <button class="btn"  [disabled]="!addCommentForm.valid"><i class="far fa-comment fa-2x"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+           
+
+            <div *ngIf="displayNoCommentsData == 'true'">
+                <div class="data" *ngFor="let k of comments">
+                    <div class="d-flex">
+                        {{k.loginId | titlecase}} 
+                        <div clas="ml-auto">
+                            {{k.createdAt | date :'medium'}}
+                        </div>
+                    </div>
+                    {{k.comment}}
+                </div>
+            </div>
+            <div *ngIf="displayNoCommentsData == 'false'">
+                <p> No Comments</p>
+            </div>
+        </div>
+     
+    </div>
+</div>
+
+
+
